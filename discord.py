@@ -1,7 +1,12 @@
-TOKEN = "OTk4OTg2OTA0NTE3MjE4MzU0.GHVwi3.AbfNh2-mGMTgs3XlUNsAW-HtJ7vP-7L0ux171E" 
+import os
 import discord
 import random
+
+from dotenv import load_dotenv
 from discord.ext import commands
+
+load_dotenv()
+TOKEN = os.getenv("DISCORD_TOKEN")
 
 client = commands.Bot(command_prefix = "$")
 
@@ -36,4 +41,4 @@ async def on_message(message):
             await message.delete()
             await message.channel.send("you cannot say that word !! (you now have {} warnings)".format(language_warnings))
 
-client.run("OTk4OTg2OTA0NTE3MjE4MzU0.GHVwi3.AbfNh2-mGMTgs3XlUNsAW-HtJ7vP-7L0ux171E" )
+client.run(TOKEN)
